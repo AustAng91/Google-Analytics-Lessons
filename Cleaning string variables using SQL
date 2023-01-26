@@ -35,3 +35,4 @@ SELECT DISTINCT customer_id --DISTINCT is added to remove any duplicates
 FROM customer_data.customer_address
 
 WHERE TRIM(state) = 'OH'
+
