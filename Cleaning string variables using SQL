@@ -1,0 +1,37 @@
+SELECT name,city
+FROM customer_data.customer_address
+
+--DISTINCT gets rid of duplicates
+
+Select DISTINCT customer_id 
+From customer_data.customer_address
+order by customer_id asc
+
+SELECT Length(country) AS letters_in_country
+FROM customer_data.customer_address
+WHERE 
+
+SELECT Country
+FROM customer_data.customer_address
+WHERE LENGTH (country) > 2
+
+-- Substring to substitute 'USA' for 'US'/ Filtering out American Customers
+
+SELECT DISTINCT customer_id
+
+FROM customer_data.customer_address
+
+WHERE SUBSTR(country, 1,2) = 'US'
+
+
+-- TRIM helps with removing extra spaces and LENGTH pulls states with more than 2 letters to sift out incorrectly listed states
+
+SELECT state
+FROM customer_data.customer_address
+WHERE Length(state) > 2
+
+SELECT DISTINCT customer_id --DISTINCT is added to remove any duplicates
+
+FROM customer_data.customer_address
+
+WHERE TRIM(state) = 'OH'
