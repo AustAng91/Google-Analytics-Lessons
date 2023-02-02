@@ -1,4 +1,7 @@
 --CONCAT for Bike Data
+--Showing how to combine two columns into one
+
+
 SELECT subscriber_type
 	
 	CONCAT(start_station_name, 'to', end_station_name) AS route
