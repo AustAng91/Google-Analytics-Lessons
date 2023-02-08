@@ -1,0 +1,51 @@
+-- ADDING Operations to Queries
+SELECT 
+  Date,
+  Region,
+  Small_Bags,
+  Large_Bags, 
+  XLarge_Bags,
+  Total_Bags,
+  Small_Bags + Large_Bags + XLarge_Bags AS Total_Bags_Calc
+FROM `my-project-1-375020.AVOCADO_DATA.Avocado` 
+
+SELECT
+  DATE,
+  Region,
+  Total_Bags,
+  Small_Bags,
+    (Small_bags / Total_Bags) * 100 AS Small_Bags_Percent
+
+FROM `my-project-1-375020.AVOCADO_DATA.Avocado` 
+
+WHERE total_bags <> 0
+
+
+-- SUBQURIES plus other goodies
+
+SELECT Warehouse.warehouse_id, 
+
+  CONCAT(Warehouse.state, ':', Warehouse.warehouse_alias) AS warehouse_name,
+  COUNT(Orders.Order_id) AS number_of_orders,
+
+    (SELECT 
+      COUNT (*)
+      FROM warehouse_orders.Orders Orders)
+      AS total_orders,  
+      CASE
+        WHEN COUNT(Orders.order_id)/(SELECT COUNT(*) FROM warehouse_orders.Orders Orders) <= 0.20
+        THEN "fulfilled 0-20% of Orders"
+        WHEN COUNT(Orders.order_id)/(SELECT COUNT(*) FROM warehouse_orders.Orders Orders) > 0.20
+        AND COUNT(Orders.order_id)/(SELECT COUNT(*) FROM warehouse_orders.Orders Orders) <= 0.60
+        THEN "Fulfilled 21-60% of Orders"
+      ELSE "Fulfilled more than 60% of Orders"
+      END AS fullfillment_summary
+
+FROM warehouse_orders.Warehouse Warehouse
+LEFT JOIN warehouse_orders.Orders Orders
+  ON Orders.warehous_id = Warehouse.warehouse_id
+GROUP BY Warehouse.warehouse_id, warehouse_name
+
+--This Example had warehouses that were still being built and not fulfiling orders yet.
+HAVING
+  COUNT(orders.order_id> 0)
