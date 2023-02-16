@@ -29,3 +29,40 @@ dmy("16-Feb-2023")
 
 
 ymd_hms("2022-02-23 3:20:59")
+
+
+#as_date() -> converts a date-time to a date
+
+as_date(now())#-> returned "2023-02-16"
+
+
+#Manually Creating a Data Frame
+
+data.frame(x=c(1, 2, 3) , y= c(1.5, 5.5, 7.5))
+
+
+
+#dir.create function creates a function to create a new folder, or directory, to hold your files
+
+dir.create("destination_folder")
+
+#file.create() creates a blank file file types will usually be something like .txt, .docx, or .csv.  
+
+file.create("new_text_file.txt")
+file.create("new_world_file.docx")
+file.create("new_csv_file.csv") # -> "TRUE" was returned meaning the file was created successfully. "FALSE" would've returned if it wasn't.
+
+
+#copying a file
+
+file.copy("new_csv_file.csv" , "destination_folder")
+
+#deleting files
+unlink ("new_csv_file.csv")
+
+#creating Matrices in R specifically a 2X3 matrix containing values 3-8
+
+matrix(c(3:8), nrow=2) #-> for rows 
+
+matrix(c(3:8), ncol=2) #-> for columns
+
