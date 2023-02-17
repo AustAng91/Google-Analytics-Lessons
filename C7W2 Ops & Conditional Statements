@@ -1,0 +1,74 @@
+#First calculations
+quarter_1_sales <- 35657.98
+quarter_2_sales <- 43810.55
+midyear_sales <- quarter_1_sales + quarter_2_sales # <- type in "midyear_sales" and shows up as 79468.53 under R Console 
+
+yearend_sales <- midyear_sales * 2 
+
+
+# Conditional Statements
+
+#IF statement
+
+x <- 4 
+
+if(x > 0) {print ("x is a positive number")}
+
+#ELSE statement
+
+if (condition) {
+  
+  expr1
+  
+} else {
+  
+  expr2
+  
+}
+
+#ELSE statement Example...
+
+x <- 7 
+
+if (x > 0) {print ("x is a positive number")} else{print ("x is either a negative number or zero")}
+
+###
+
+x <- (-7) 
+
+if (x > 0) {print ("x is a positive number")} else{print ("x is either a negative number or zero")}
+
+
+#ELSE IF Statement
+if (condition1) {
+  
+  expr1
+  
+} else if (condition2) {
+  
+  expr2
+  
+} else {
+  
+  expr3
+  
+}
+
+
+#ELSE IF Statement EXAMPLE
+
+x <- -1
+
+if (x < 0) {print("x is a negative number")
+  
+
+  
+} else if (x == 0) { print("x is zero")
+  
+  
+  
+} else { print("x is a positive number")
+  
+
+  
+}
