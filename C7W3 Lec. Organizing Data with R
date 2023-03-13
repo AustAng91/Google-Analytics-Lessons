@@ -1,0 +1,203 @@
+R SCRIPT
+
+install.packages("palmerpenguins")
+library(palmerpenguins)
+
+library(tidyverse)
+penguins %>% arrange(bill_length_mm)
+
+
+penguins %>% arrange(-bill_length_mm) ##FOR DESCENDING ORDER
+
+
+penguins2 <- penguins %>% arrange(-bill_length_mm) ## CREATING A NEW DATA FRAME
+view(penguins2) ## ALLOWS YOU TO VIEW CLEANED DATA W/O ALTERING DATA FROM THE ORIGINAL DATA SET
+
+
+## GROUPING BILL LENGTHS BY ISLAND AND MEAN LENGTH
+penguins %>% group_by(island) %>% drop_na() %>% summarize (mean_bill_length_mm = mean(bill_length_mm))
+
+## GORUP BY FUNCTION SAME AS ABOVE, EXCEPT WE ARE LOOKING AT MAX LENGTH
+penguins %>% group_by(island) %>% drop_na() %>% summarize (mean_bill_length_mm = max(bill_length_mm))
+
+
+## GROUOP BY ISLAND, SPECIES, AND GROUP BY MEAN AND MAX BILL LENGTH
+penguins %>% group_by(species, island) %>% drop_na() %>% summarize(max_bl = max(bill_length_mm), mean_bl = mean(bill_length_mm))
+
+
+## FILTERING FUNCTION... "==" exactatly equal to ... 
+penguins %>% filter(species == "Adelie")
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+R CONSOLE
+
+Restarting R session...
+
+> install.packages("tidyverse")
+Installing package into ‘/cloud/lib/x86_64-pc-linux-gnu-library/4.2’
+(as ‘lib’ is unspecified)
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/tidyverse_2.0.0.tar.gz'
+Content type 'application/x-gzip' length 425330 bytes (415 KB)
+==================================================
+downloaded 415 KB
+
+* installing *binary* package ‘tidyverse’ ...
+* DONE (tidyverse)
+
+The downloaded source packages are in
+	‘/tmp/RtmpIto6XF/downloaded_packages’
+> library(tidyverse)
+── Attaching core tidyverse packages ───────────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.0     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.1     ✔ tibble    3.1.8
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ purrr     1.0.1     
+── Conflicts ─────────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package to force all conflicts to become errors
+> 
+> install.packages("palmer penguins")
+Installing package into ‘/cloud/lib/x86_64-pc-linux-gnu-library/4.2’
+(as ‘lib’ is unspecified)
+Warning in install.packages :
+  package ‘palmer penguins’ is not available for this version of R
+
+A version of this package for your version of R might be available elsewhere,
+see the ideas at
+https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages
+> install.packages("palmer penguins")
+Installing package into ‘/cloud/lib/x86_64-pc-linux-gnu-library/4.2’
+(as ‘lib’ is unspecified)
+Warning in install.packages :
+  package ‘palmer penguins’ is not available for this version of R
+
+A version of this package for your version of R might be available elsewhere,
+see the ideas at
+https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages
+> library(penguins)
+Error in library(penguins) : there is no package called ‘penguins’
+> install.packages("palmerpenguins")
+Installing package into ‘/cloud/lib/x86_64-pc-linux-gnu-library/4.2’
+(as ‘lib’ is unspecified)
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/palmerpenguins_0.1.1.tar.gz'
+Content type 'application/x-gzip' length 3001167 bytes (2.9 MB)
+==================================================
+downloaded 2.9 MB
+
+* installing *binary* package ‘palmerpenguins’ ...
+* DONE (palmerpenguins)
+
+The downloaded source packages are in
+	‘/tmp/RtmpIto6XF/downloaded_packages’
+> library(penguins)
+Error in library(penguins) : there is no package called ‘penguins’
+> library(tidyverse)
+> penguins %>% arrange(bill_length_mm)
+Error in arrange(., bill_length_mm) : object 'penguins' not found
+> install.packages("palmerpenguins")
+Installing package into ‘/cloud/lib/x86_64-pc-linux-gnu-library/4.2’
+(as ‘lib’ is unspecified)
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/palmerpenguins_0.1.1.tar.gz'
+Content type 'application/x-gzip' length 3001167 bytes (2.9 MB)
+==================================================
+downloaded 2.9 MB
+
+* installing *binary* package ‘palmerpenguins’ ...
+* DONE (palmerpenguins)
+
+The downloaded source packages are in
+	‘/tmp/RtmpIto6XF/downloaded_packages’
+> library(penguins)
+Error in library(penguins) : there is no package called ‘penguins’
+> library(palmerpenguins)
+> library(tidyverse)
+> penguins %>% arrange(bill_length_mm)
+# A tibble: 344 × 8
+   species island    bill_length_mm bill_depth_mm flipper_lengt…¹ body_…² sex    year
+   <fct>   <fct>              <dbl>         <dbl>           <int>   <int> <fct> <int>
+ 1 Adelie  Dream               32.1          15.5             188    3050 fema…  2009
+ 2 Adelie  Dream               33.1          16.1             178    2900 fema…  2008
+ 3 Adelie  Torgersen           33.5          19               190    3600 fema…  2008
+ 4 Adelie  Dream               34            17.1             185    3400 fema…  2008
+ 5 Adelie  Torgersen           34.1          18.1             193    3475 NA     2007
+ 6 Adelie  Torgersen           34.4          18.4             184    3325 fema…  2007
+ 7 Adelie  Biscoe              34.5          18.1             187    2900 fema…  2008
+ 8 Adelie  Torgersen           34.6          21.1             198    4400 male   2007
+ 9 Adelie  Torgersen           34.6          17.2             189    3200 fema…  2008
+10 Adelie  Biscoe              35            17.9             190    3450 fema…  2008
+# … with 334 more rows, and abbreviated variable names ¹​flipper_length_mm,
+#   ²​body_mass_g
+# ℹ Use `print(n = ...)` to see more rows
+> penguins %>% arrange(-bill_length_mm) ##FOR DESCENDING ORDER
+# A tibble: 344 × 8
+   species   island bill_length_mm bill_depth_mm flipper_length…¹ body_…² sex    year
+   <fct>     <fct>           <dbl>         <dbl>            <int>   <int> <fct> <int>
+ 1 Gentoo    Biscoe           59.6          17                230    6050 male   2007
+ 2 Chinstrap Dream            58            17.8              181    3700 fema…  2007
+ 3 Gentoo    Biscoe           55.9          17                228    5600 male   2009
+ 4 Chinstrap Dream            55.8          19.8              207    4000 male   2009
+ 5 Gentoo    Biscoe           55.1          16                230    5850 male   2009
+ 6 Gentoo    Biscoe           54.3          15.7              231    5650 male   2008
+ 7 Chinstrap Dream            54.2          20.8              201    4300 male   2008
+ 8 Chinstrap Dream            53.5          19.9              205    4500 male   2008
+ 9 Gentoo    Biscoe           53.4          15.8              219    5500 male   2009
+10 Chinstrap Dream            52.8          20                205    4550 male   2008
+# … with 334 more rows, and abbreviated variable names ¹​flipper_length_mm,
+#   ²​body_mass_g
+# ℹ Use `print(n = ...)` to see more rows
+> penguins2 <- penguins %>% arrange(-bill_length_mm)
+> view(penguins2)
+> penguins %>% group_by(island) %>% drop_na() %>% summarize (mean_bill_length_mm = mean(bill_length_mm))
+# A tibble: 3 × 2
+  island    mean_bill_length_mm
+  <fct>                   <dbl>
+1 Biscoe                   45.2
+2 Dream                    44.2
+3 Torgersen                39.0
+> penguins %>% group_by(island) %>% drop_na() %>% summarize (mean_bill_length_mm = max(bill_length_mm))
+# A tibble: 3 × 2
+  island    mean_bill_length_mm
+  <fct>                   <dbl>
+1 Biscoe                   59.6
+2 Dream                    58  
+3 Torgersen                46  
+> penguins %>% group_by(species, island) %>% drop_na() %>% summarize(max_bl = max(bill_length_mm), mean_bl = mean(bill_length_mm)
++ penguins %>% group_by(species, island) %>% drop_na() %>% summarize(max_bl = max(bill_length_mm), mean_bl = mean(bill_length_mm))
+Error: unexpected symbol in:
+"penguins %>% group_by(species, island) %>% drop_na() %>% summarize(max_bl = max(bill_length_mm), mean_bl = mean(bill_length_mm)
+penguins"
+> penguins %>% group_by(species, island) %>% drop_na() %>% summarize(max_bl = max(bill_length_mm), mean_bl = mean(bill_length_mm))
+`summarise()` has grouped output by 'species'. You can override using the `.groups`
+argument.
+# A tibble: 5 × 4
+# Groups:   species [3]
+  species   island    max_bl mean_bl
+  <fct>     <fct>      <dbl>   <dbl>
+1 Adelie    Biscoe      45.6    39.0
+2 Adelie    Dream       44.1    38.5
+3 Adelie    Torgersen   46      39.0
+4 Chinstrap Dream       58      48.8
+5 Gentoo    Biscoe      59.6    47.6
+> penguins %>% filter(species == "Adelie")
+# A tibble: 152 × 8
+   species island    bill_length_mm bill_depth_mm flipper_lengt…¹ body_…² sex    year
+   <fct>   <fct>              <dbl>         <dbl>           <int>   <int> <fct> <int>
+ 1 Adelie  Torgersen           39.1          18.7             181    3750 male   2007
+ 2 Adelie  Torgersen           39.5          17.4             186    3800 fema…  2007
+ 3 Adelie  Torgersen           40.3          18               195    3250 fema…  2007
+ 4 Adelie  Torgersen           NA            NA                NA      NA NA     2007
+ 5 Adelie  Torgersen           36.7          19.3             193    3450 fema…  2007
+ 6 Adelie  Torgersen           39.3          20.6             190    3650 male   2007
+ 7 Adelie  Torgersen           38.9          17.8             181    3625 fema…  2007
+ 8 Adelie  Torgersen           39.2          19.6             195    4675 male   2007
+ 9 Adelie  Torgersen           34.1          18.1             193    3475 NA     2007
+10 Adelie  Torgersen           42            20.2             190    4250 NA     2007
+# … with 142 more rows, and abbreviated variable names ¹​flipper_length_mm,
+#   ²​body_mass_g
+# ℹ Use `print(n = ...)` to see more rows
+> 
+
+
