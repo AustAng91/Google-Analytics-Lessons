@@ -1,0 +1,767 @@
+## INSTALL PACKAGES BELOW
+
+install.packages("here")
+library("here")
+install.packages("skimr")
+library("skimr")
+install.packages("janitor")
+library("janitor")
+install.packages("dplyr")
+library("dplyr")
+
+## INSTALL PALMER PENGUINS
+
+install.packages("palmerpenguins")
+library("palmerpenguins") ##-> "library" function loads the package
+
+
+
+install.packages("skimr")
+library("skimr")
+skim_without_charts(penguins)
+
+library("dplyr")
+library("dplyr")
+
+penguins %>% select(-species)
+penguins %>% select(-species)
+
+
+
+
+
+
+==============================================
+downloaded 228 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/modelr_0.1.10.tar.gz'
+Content type 'application/x-gzip' length 200214 bytes (195 KB)
+==================================================
+downloaded 195 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/pillar_1.8.1.tar.gz'
+Content type 'application/x-gzip' length 675610 bytes (659 KB)
+==================================================
+downloaded 659 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/purrr_1.0.1.tar.gz'
+Content type 'application/x-gzip' length 491011 bytes (479 KB)
+==================================================
+downloaded 479 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/ragg_1.2.5.tar.gz'
+Content type 'application/x-gzip' length 483127 bytes (471 KB)
+==================================================
+downloaded 471 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/readr_2.1.4.tar.gz'
+Content type 'application/x-gzip' length 880786 bytes (860 KB)
+==================================================
+downloaded 860 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/readxl_1.4.2.tar.gz'
+Content type 'application/x-gzip' length 890388 bytes (869 KB)
+==================================================
+downloaded 869 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/reprex_2.0.2.tar.gz'
+Content type 'application/x-gzip' length 495572 bytes (483 KB)
+==================================================
+downloaded 483 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/rlang_1.0.6.tar.gz'
+Content type 'application/x-gzip' length 1947955 bytes (1.9 MB)
+==================================================
+downloaded 1.9 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/rstudioapi_0.14.tar.gz'
+Content type 'application/x-gzip' length 291621 bytes (284 KB)
+==================================================
+downloaded 284 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/rvest_1.0.3.tar.gz'
+Content type 'application/x-gzip' length 210155 bytes (205 KB)
+==================================================
+downloaded 205 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/stringr_1.5.0.tar.gz'
+Content type 'application/x-gzip' length 302436 bytes (295 KB)
+==================================================
+downloaded 295 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/tibble_3.2.0.tar.gz'
+Content type 'application/x-gzip' length 673605 bytes (657 KB)
+==================================================
+downloaded 657 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/tidyr_1.3.0.tar.gz'
+Content type 'application/x-gzip' length 1199320 bytes (1.1 MB)
+==================================================
+downloaded 1.1 MB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/xml2_1.3.3.tar.gz'
+Content type 'application/x-gzip' length 613648 bytes (599 KB)
+==================================================
+downloaded 599 KB
+
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/tidyverse_2.0.0.tar.gz'
+Content type 'application/x-gzip' length 425229 bytes (415 KB)
+==================================================
+downloaded 415 KB
+
+* installing *binary* package ‘fastmap’ ...
+* DONE (fastmap)
+* installing *binary* package ‘bit’ ...
+* DONE (bit)
+* installing *binary* package ‘withr’ ...
+* DONE (withr)
+* installing *binary* package ‘cpp11’ ...
+* DONE (cpp11)
+* installing *binary* package ‘glue’ ...
+* DONE (glue)
+* installing *binary* package ‘cli’ ...
+* DONE (cli)
+* installing *binary* package ‘jsonlite’ ...
+* DONE (jsonlite)
+* installing *binary* package ‘magrittr’ ...
+* DONE (magrittr)
+* installing *binary* package ‘rlang’ ...
+* DONE (rlang)
+* installing *binary* package ‘rstudioapi’ ...
+* DONE (rstudioapi)
+* installing *binary* package ‘xml2’ ...
+* DONE (xml2)
+* installing *binary* package ‘cachem’ ...
+* DONE (cachem)
+* installing *binary* package ‘bit64’ ...
+* DONE (bit64)
+* installing *binary* package ‘lifecycle’ ...
+* DONE (lifecycle)
+* installing *binary* package ‘timechange’ ...
+* DONE (timechange)
+* installing *binary* package ‘systemfonts’ ...
+* DONE (systemfonts)
+* installing *binary* package ‘tzdb’ ...
+* DONE (tzdb)
+* installing *binary* package ‘httr’ ...
+* DONE (httr)
+* installing *binary* package ‘memoise’ ...
+* DONE (memoise)
+* installing *binary* package ‘vctrs’ ...
+* DONE (vctrs)
+* installing *binary* package ‘scales’ ...
+* DONE (scales)
+* installing *binary* package ‘gargle’ ...
+* DONE (gargle)
+* installing *binary* package ‘textshaping’ ...
+* DONE (textshaping)
+* installing *binary* package ‘lubridate’ ...
+* DONE (lubridate)
+* installing *binary* package ‘reprex’ ...
+* DONE (reprex)
+* installing *binary* package ‘tidyselect’ ...
+* DONE (tidyselect)
+* installing *binary* package ‘conflicted’ ...
+* DONE (conflicted)
+* installing *binary* package ‘hms’ ...
+* DONE (hms)
+* installing *binary* package ‘pillar’ ...
+* DONE (pillar)
+* installing *binary* package ‘purrr’ ...
+* DONE (purrr)
+* installing *binary* package ‘ragg’ ...
+* DONE (ragg)
+* installing *binary* package ‘stringr’ ...
+* DONE (stringr)
+* installing *binary* package ‘tibble’ ...
+* DONE (tibble)
+* installing *binary* package ‘vroom’ ...
+* DONE (vroom)
+* installing *binary* package ‘dplyr’ ...
+* DONE (dplyr)
+* installing *binary* package ‘forcats’ ...
+* DONE (forcats)
+* installing *binary* package ‘ggplot2’ ...
+* DONE (ggplot2)
+* installing *binary* package ‘googledrive’ ...
+* DONE (googledrive)
+* installing *binary* package ‘readxl’ ...
+* DONE (readxl)
+* installing *binary* package ‘rvest’ ...
+* DONE (rvest)
+* installing *binary* package ‘dtplyr’ ...
+* DONE (dtplyr)
+* installing *binary* package ‘googlesheets4’ ...
+* DONE (googlesheets4)
+* installing *binary* package ‘readr’ ...
+* DONE (readr)
+* installing *binary* package ‘tidyr’ ...
+* DONE (tidyr)
+* installing *binary* package ‘broom’ ...
+* DONE (broom)
+* installing *binary* package ‘dbplyr’ ...
+* DONE (dbplyr)
+* installing *binary* package ‘haven’ ...
+* DONE (haven)
+* installing *binary* package ‘modelr’ ...
+* DONE (modelr)
+* installing *binary* package ‘tidyverse’ ...
+* DONE (tidyverse)
+
+The downloaded source packages are in
+	‘/tmp/RtmpiCQyTU/downloaded_packages’
+> bookings_df <- read_csv("hotel_bookings.csv")
+Error in read_csv("hotel_bookings.csv") : 
+  could not find function "read_csv"
+> setwd("projects/Course 7/Week 3") bookings_df <- read_csv("hotel_bookings.csv")
+Error: unexpected symbol in "setwd("projects/Course 7/Week 3") bookings_df"
+> setwd("projects/Course 7/Week 3")bookings_df <- read_csv("hotel_bookings.csv")
+Error: unexpected symbol in "setwd("projects/Course 7/Week 3")bookings_df"
+> bookings_df <- setwd("projects/Course 7/Week 3")read_csv("hotel_bookings.csv")
+Error: unexpected symbol in "bookings_df <- setwd("projects/Course 7/Week 3")read_csv"
+> bookings_df <- read_csv("hotel_bookings.csv")
+Error in read_csv("hotel_bookings.csv") : 
+  could not find function "read_csv"
+> bookings_df <-setwd("projects/Course 7/Week 3") read_csv("hotel_bookings.csv")
+Error: unexpected symbol in "bookings_df <-setwd("projects/Course 7/Week 3") read_csv"
+> bookings_df <- read_csv("hotel_bookings.csv") setwd("projects/Course 7/Week 3")
+Error: unexpected symbol in "bookings_df <- read_csv("hotel_bookings.csv") setwd"
+> bookings_df <- read_csv("hotel_bookings.csv") 
+Error in read_csv("hotel_bookings.csv") : 
+  could not find function "read_csv"
+Connected to your session in progress, last started 2023-Mar-13 20:56:45 UTC (6 minutes ago)
+> install.packages("tidyverse")
+Installing package into ‘/cloud/lib/x86_64-pc-linux-gnu-library/4.0’
+(as ‘lib’ is unspecified)
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/tidyverse_2.0.0.tar.gz'
+Content type 'application/x-gzip' length 425229 bytes (415 KB)
+==================================================
+downloaded 415 KB
+
+* installing *binary* package ‘tidyverse’ ...
+* DONE (tidyverse)
+
+The downloaded source packages are in
+	‘/tmp/RtmpiCQyTU/downloaded_packages’
+> bookings_df <- read_csv("hotel_bookings.csv") 
+Error in read_csv("hotel_bookings.csv") : 
+  could not find function "read_csv"
+> read_csv("hotel_bookings.csv") 
+Error in read_csv("hotel_bookings.csv") : 
+  could not find function "read_csv"
+> library(readr)
+> read_csv("hotel_bookings.csv") 
+Error: 'hotel_bookings.csv' does not exist in current working directory ('/cloud/project').
+> read_csv("hotel_bookings.csv") 
+Error: 'hotel_bookings.csv' does not exist in current working directory ('/cloud/project').
+> setwd("projects/Course 7/Week 3") read_csv("hotel_bookings.csv") 
+Error: unexpected symbol in "setwd("projects/Course 7/Week 3") read_csv"
+> install.packages("readr")
+Error in install.packages : Updating loaded packages
+
+Restarting R session...
+
+> install.packages("readr")
+Installing package into ‘/cloud/lib/x86_64-pc-linux-gnu-library/4.0’
+(as ‘lib’ is unspecified)
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/readr_2.1.4.tar.gz'
+Content type 'application/x-gzip' length 880786 bytes (860 KB)
+==================================================
+downloaded 860 KB
+
+* installing *binary* package ‘readr’ ...
+* DONE (readr)
+
+The downloaded source packages are in
+	‘/tmp/RtmpKU7c6Z/downloaded_packages’
+> library(readr)
+> read_csv("hotel_bookings.csv") 
+Error: 'hotel_bookings.csv' does not exist in current working directory ('/cloud/project').
+> read_csv("hotel_bookings.csv") 
+Error: 'hotel_bookings.csv' does not exist in current working directory ('/cloud/project').
+> setwd("projects/Course 7/Week 3")
+Error in setwd("projects/Course 7/Week 3") : 
+  cannot change working directory
+> setwd("projects/Course 7/Week 3")
+Error in setwd("projects/Course 7/Week 3") : 
+  cannot change working directory
+> getwd()
+[1] "/cloud/project/Course 7/Week 3"
+> setwd("projects/Course 7/Week 3")
+Error in setwd("projects/Course 7/Week 3") : 
+  cannot change working directory
+> getwd()
+[1] "/cloud/project/Course 7/Week 3"
+> setwd("projects/Course 7/Week 3")
+Error in setwd("projects/Course 7/Week 3") : 
+  cannot change working directory
+> getwd()
+[1] "/cloud/project/Course 7/Week 3"
+> 
+> bookings_df <- read_csv("hotel_bookings.csv") 
+Rows: 119390 Columns: 32── Column specification ─────────────────────────────────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (13): hotel, arrival_date_month, meal, country, market_segment, distribution_channel, reserved_room_...
+dbl  (18): is_canceled, lead_time, arrival_date_year, arrival_date_week_number, arrival_date_day_of_month...
+date  (1): reservation_status_date
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+> getwd()
+[1] "/cloud/project/Course 7/Week 3"
+> setwd(cloud/project/Course 7/Week 3)
+Error: unexpected numeric constant in "setwd(cloud/project/Course 7"
+> getwd()
+[1] "/cloud/project/Course 7/Week 3"
+> setwd(cloud/project/Course 7/Week 3)
+Error: unexpected numeric constant in "setwd(cloud/project/Course 7"
+> getwd()
+[1] "/cloud/project/Course 7/Week 3"
+> setwd(cloud/project/Course "7"/Week "3")
+Error: unexpected string constant in "setwd(cloud/project/Course "7""
+> getwd()
+[1] "/cloud/project/Course 7/Week 3"
+> setwd(cloud/project/Course7/Week3)
+Error in setwd(cloud/project/Course7/Week3) : object 'cloud' not found
+> getwd()
+[1] "/cloud/project/Course 7/Week 3"
+> setwd(project/Course7/Week3)
+Error in setwd(project/Course7/Week3) : object 'project' not found
+> getwd()
+[1] "/cloud/project/Course 7/Week 3"
+> setwd(project/Course7/Week3)
+Error in setwd(project/Course7/Week3) : object 'project' not found
+> getwd()
+[1] "/cloud/project/Course 7/Week 3"
+> setwd(Course7/Week3)
+Error in setwd(Course7/Week3) : object 'Course7' not found
+> getwd()
+[1] "/cloud/project/Course 7/Week 3"
+> 
+> bookings_df <- read_csv("hotel_bookings.csv") 
+Rows: 119390 Columns: 32── Column specification ─────────────────────────────────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (13): hotel, arrival_date_month, meal, country, market_segment, distribution_channel, reserved_room_...
+dbl  (18): is_canceled, lead_time, arrival_date_year, arrival_date_week_number, arrival_date_day_of_month...
+date  (1): reservation_status_date
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+> getwd()
+[1] "/cloud/project/Course 7/Week 3"
+> 
+>  
+> 
+> setwd("projects/Course 7/Week 3")
+Error in setwd("projects/Course 7/Week 3") : 
+  cannot change working directory
+> 
+> setwd(projects/Course 7/Week 3)
+Error: unexpected numeric constant in "setwd(projects/Course 7"
+> 
+> setwd("projects/Course 7/Week 3")
+Error in setwd("projects/Course 7/Week 3") : 
+  cannot change working directory
+> 
+> setwd("cloud/projects/Course 7/Week 3")
+Error in setwd("cloud/projects/Course 7/Week 3") : 
+  cannot change working directory
+> library(readr)
+> hotel_bookings <- read_csv("Course 7/Week 3/hotel_bookings.csv")
+Rows: 119390 Columns: 32                                                                                                                                  
+── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (13): hotel, arrival_date_month, meal, country, market_segment, distribution_channel, reserved_room_type, assi...
+dbl  (18): is_canceled, lead_time, arrival_date_year, arrival_date_week_number, arrival_date_day_of_month, stays_in...
+date  (1): reservation_status_date
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+> View(hotel_bookings)
+> bookings_df <- read_csv("hotel_bookings.csv") 
+Rows: 119390 Columns: 32── Column specification ─────────────────────────────────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (13): hotel, arrival_date_month, meal, country, market_segment, distribution_channel, reserved_room_...
+dbl  (18): is_canceled, lead_time, arrival_date_year, arrival_date_week_number, arrival_date_day_of_month...
+date  (1): reservation_status_date
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+> head(bookings_df)
+> str(bookings_df)
+spc_tbl_ [119,390 × 32] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ hotel                         : chr [1:119390] "Resort Hotel" "Resort Hotel" "Resort Hotel" "Resort Hotel" ...
+ $ is_canceled                   : num [1:119390] 0 0 0 0 0 0 0 0 1 1 ...
+ $ lead_time                     : num [1:119390] 342 737 7 13 14 14 0 9 85 75 ...
+ $ arrival_date_year             : num [1:119390] 2015 2015 2015 2015 2015 ...
+ $ arrival_date_month            : chr [1:119390] "July" "July" "July" "July" ...
+ $ arrival_date_week_number      : num [1:119390] 27 27 27 27 27 27 27 27 27 27 ...
+ $ arrival_date_day_of_month     : num [1:119390] 1 1 1 1 1 1 1 1 1 1 ...
+ $ stays_in_weekend_nights       : num [1:119390] 0 0 0 0 0 0 0 0 0 0 ...
+ $ stays_in_week_nights          : num [1:119390] 0 0 1 1 2 2 2 2 3 3 ...
+ $ adults                        : num [1:119390] 2 2 1 1 2 2 2 2 2 2 ...
+ $ children                      : num [1:119390] 0 0 0 0 0 0 0 0 0 0 ...
+ $ babies                        : num [1:119390] 0 0 0 0 0 0 0 0 0 0 ...
+ $ meal                          : chr [1:119390] "BB" "BB" "BB" "BB" ...
+ $ country                       : chr [1:119390] "PRT" "PRT" "GBR" "GBR" ...
+ $ market_segment                : chr [1:119390] "Direct" "Direct" "Direct" "Corporate" ...
+ $ distribution_channel          : chr [1:119390] "Direct" "Direct" "Direct" "Corporate" ...
+ $ is_repeated_guest             : num [1:119390] 0 0 0 0 0 0 0 0 0 0 ...
+ $ previous_cancellations        : num [1:119390] 0 0 0 0 0 0 0 0 0 0 ...
+ $ previous_bookings_not_canceled: num [1:119390] 0 0 0 0 0 0 0 0 0 0 ...
+ $ reserved_room_type            : chr [1:119390] "C" "C" "A" "A" ...
+ $ assigned_room_type            : chr [1:119390] "C" "C" "C" "A" ...
+ $ booking_changes               : num [1:119390] 3 4 0 0 0 0 0 0 0 0 ...
+ $ deposit_type                  : chr [1:119390] "No Deposit" "No Deposit" "No Deposit" "No Deposit" ...
+ $ agent                         : chr [1:119390] "NULL" "NULL" "NULL" "304" ...
+ $ company                       : chr [1:119390] "NULL" "NULL" "NULL" "NULL" ...
+ $ days_in_waiting_list          : num [1:119390] 0 0 0 0 0 0 0 0 0 0 ...
+ $ customer_type                 : chr [1:119390] "Transient" "Transient" "Transient" "Transient" ...
+ $ adr                           : num [1:119390] 0 0 75 75 98 ...
+ $ required_car_parking_spaces   : num [1:119390] 0 0 0 0 0 0 0 0 0 0 ...
+ $ total_of_special_requests     : num [1:119390] 0 0 0 0 1 1 0 1 1 0 ...
+ $ reservation_status            : chr [1:119390] "Check-Out" "Check-Out" "Check-Out" "Check-Out" ...
+ $ reservation_status_date       : Date[1:119390], format: "2015-07-01" "2015-07-01" "2015-07-02" ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   hotel = col_character(),
+  ..   is_canceled = col_double(),
+  ..   lead_time = col_double(),
+  ..   arrival_date_year = col_double(),
+  ..   arrival_date_month = col_character(),
+  ..   arrival_date_week_number = col_double(),
+  ..   arrival_date_day_of_month = col_double(),
+  ..   stays_in_weekend_nights = col_double(),
+  ..   stays_in_week_nights = col_double(),
+  ..   adults = col_double(),
+  ..   children = col_double(),
+  ..   babies = col_double(),
+  ..   meal = col_character(),
+  ..   country = col_character(),
+  ..   market_segment = col_character(),
+  ..   distribution_channel = col_character(),
+  ..   is_repeated_guest = col_double(),
+  ..   previous_cancellations = col_double(),
+  ..   previous_bookings_not_canceled = col_double(),
+  ..   reserved_room_type = col_character(),
+  ..   assigned_room_type = col_character(),
+  ..   booking_changes = col_double(),
+  ..   deposit_type = col_character(),
+  ..   agent = col_character(),
+  ..   company = col_character(),
+  ..   days_in_waiting_list = col_double(),
+  ..   customer_type = col_character(),
+  ..   adr = col_double(),
+  ..   required_car_parking_spaces = col_double(),
+  ..   total_of_special_requests = col_double(),
+  ..   reservation_status = col_character(),
+  ..   reservation_status_date = col_date(format = "")
+  .. )
+ - attr(*, "problems")=<externalptr> 
+> colnames(bookings_df)
+ [1] "hotel"                          "is_canceled"                    "lead_time"                     
+ [4] "arrival_date_year"              "arrival_date_month"             "arrival_date_week_number"      
+ [7] "arrival_date_day_of_month"      "stays_in_weekend_nights"        "stays_in_week_nights"          
+[10] "adults"                         "children"                       "babies"                        
+[13] "meal"                           "country"                        "market_segment"                
+[16] "distribution_channel"           "is_repeated_guest"              "previous_cancellations"        
+[19] "previous_bookings_not_canceled" "reserved_room_type"             "assigned_room_type"            
+[22] "booking_changes"                "deposit_type"                   "agent"                         
+[25] "company"                        "days_in_waiting_list"           "customer_type"                 
+[28] "adr"                            "required_car_parking_spaces"    "total_of_special_requests"     
+[31] "reservation_status"             "reservation_status_date"       
+> new_df <- select(bookings_df, `adr`, adults)
+Error in select(bookings_df, adr, adults) : 
+  could not find function "select"
+> new_df <- select(bookings_df, `adr`, adults)
+Error in select(bookings_df, adr, adults) : 
+  could not find function "select"
+> mutate(new_df, total = `adr` / adults)
+Error in mutate(new_df, total = adr/adults) : 
+  could not find function "mutate"
+> install.packages("here")
+Installing package into ‘/cloud/lib/x86_64-pc-linux-gnu-library/4.0’
+(as ‘lib’ is unspecified)
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/here_1.0.1.tar.gz'
+Content type 'application/x-gzip' length 52110 bytes (50 KB)
+==================================================
+downloaded 50 KB
+
+* installing *binary* package ‘here’ ...
+* DONE (here)
+
+The downloaded source packages are in
+	‘/tmp/RtmpKU7c6Z/downloaded_packages’
+> library("here")
+here() starts at /cloud/project
+> install.packages("skimr")
+Installing package into ‘/cloud/lib/x86_64-pc-linux-gnu-library/4.0’
+(as ‘lib’ is unspecified)
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/skimr_2.1.5.tar.gz'
+Content type 'application/x-gzip' length 1226894 bytes (1.2 MB)
+==================================================
+downloaded 1.2 MB
+
+* installing *binary* package ‘skimr’ ...
+* DONE (skimr)
+
+The downloaded source packages are in
+	‘/tmp/RtmpKU7c6Z/downloaded_packages’
+> library("skimr")
+> install.packages("janitor")
+Installing package into ‘/cloud/lib/x86_64-pc-linux-gnu-library/4.0’
+(as ‘lib’ is unspecified)
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/janitor_2.2.0.tar.gz'
+Content type 'application/x-gzip' length 283683 bytes (277 KB)
+==================================================
+downloaded 277 KB
+
+* installing *binary* package ‘janitor’ ...
+* DONE (janitor)
+
+The downloaded source packages are in
+	‘/tmp/RtmpKU7c6Z/downloaded_packages’
+> library("janitor")
+
+Attaching package: ‘janitor’
+
+The following objects are masked from ‘package:stats’:
+
+    chisq.test, fisher.test
+
+> install.packages("dplyr")
+Error in install.packages : Updating loaded packages
+
+Restarting R session...
+
+> install.packages("dplyr")
+Installing package into ‘/cloud/lib/x86_64-pc-linux-gnu-library/4.0’
+(as ‘lib’ is unspecified)
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/dplyr_1.1.0.tar.gz'
+Content type 'application/x-gzip' length 1448440 bytes (1.4 MB)
+==================================================
+downloaded 1.4 MB
+
+* installing *binary* package ‘dplyr’ ...
+* DONE (dplyr)
+
+The downloaded source packages are in
+	‘/tmp/RtmpX4YYia/downloaded_packages’
+> library("dplyr")
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+> install.packages("palmerpenguins")
+Installing package into ‘/cloud/lib/x86_64-pc-linux-gnu-library/4.0’
+(as ‘lib’ is unspecified)
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/palmerpenguins_0.1.1.tar.gz'
+Content type 'application/x-gzip' length 3000992 bytes (2.9 MB)
+==================================================
+downloaded 2.9 MB
+
+* installing *binary* package ‘palmerpenguins’ ...
+* DONE (palmerpenguins)
+
+The downloaded source packages are in
+	‘/tmp/RtmpX4YYia/downloaded_packages’
+> library("palmerpenguins")
+> skim_without_charts(penguins)
+Error in skim_without_charts(penguins) : 
+  could not find function "skim_without_charts"
+> skim_without_charts("penguins")
+Error in skim_without_charts("penguins") : 
+  could not find function "skim_without_charts"
+> skim_without_charts(penguins)
+Error in skim_without_charts(penguins) : 
+  could not find function "skim_without_charts"
+> install.packages("skimr")
+Error in install.packages : Updating loaded packages
+> library("skimr")
+> skim_without_charts(penguins)
+── Data Summary ────────────────────────
+                           Values  
+Name                       penguins
+Number of rows             344     
+Number of columns          8       
+_______________________            
+Column type frequency:             
+  factor                   3       
+  numeric                  5       
+________________________           
+Group variables            None    
+
+── Variable type: factor ─────────────────────────────────────
+  skim_variable n_missing complete_rate ordered n_unique
+1 species               0         1     FALSE          3
+2 island                0         1     FALSE          3
+3 sex                  11         0.968 FALSE          2
+  top_counts                 
+1 Ade: 152, Gen: 124, Chi: 68
+2 Bis: 168, Dre: 124, Tor: 52
+3 mal: 168, fem: 165         
+
+── Variable type: numeric ────────────────────────────────────
+  skim_variable     n_missing complete_rate   mean      sd
+1 bill_length_mm            2         0.994   43.9   5.46 
+2 bill_depth_mm             2         0.994   17.2   1.97 
+3 flipper_length_mm         2         0.994  201.   14.1  
+4 body_mass_g               2         0.994 4202.  802.   
+5 year                      0         1     2008.    0.818
+      p0    p25    p50    p75   p100
+1   32.1   39.2   44.4   48.5   59.6
+2   13.1   15.6   17.3   18.7   21.5
+3  172    190    197    213    231  
+4 2700   3550   4050   4750   6300  
+5 2007   2007   2008   2009   2009  
+
+Restarting R session...
+
+> install.packages("skimr")
+Installing package into ‘/cloud/lib/x86_64-pc-linux-gnu-library/4.0’
+(as ‘lib’ is unspecified)
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/skimr_2.1.5.tar.gz'
+Content type 'application/x-gzip' length 1226894 bytes (1.2 MB)
+==================================================
+downloaded 1.2 MB
+
+* installing *binary* package ‘skimr’ ...
+* DONE (skimr)
+
+The downloaded source packages are in
+	‘/tmp/Rtmpr1kRzr/downloaded_packages’
+> glimpse(penguins)
+Error in glimpse(penguins) : could not find function "glimpse"
+> glimpse(penguins)
+Error in glimpse(penguins) : could not find function "glimpse"
+> library("dplyr")
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+> glimpse(penguins)
+Error in glimpse(penguins) : object 'penguins' not found
+> glimpse(penguins)
+Error in glimpse(penguins) : object 'penguins' not found
+>  library("dplyr")
+> 
+> glimpse(penguins)
+Error in glimpse(penguins) : object 'penguins' not found
+> glimpse(penguins)
+Error in glimpse(penguins) : object 'penguins' not found
+> glimpse("penguins")
+ chr "penguins"
+> glimpse(penguins)
+Error in glimpse(penguins) : object 'penguins' not found
+> library("dplyr")
+> install.packages("dplyr")
+Error in install.packages : Updating loaded packages
+
+Restarting R session...
+
+> install.packages("dplyr")
+Installing package into ‘/cloud/lib/x86_64-pc-linux-gnu-library/4.0’
+(as ‘lib’ is unspecified)
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/dplyr_1.1.0.tar.gz'
+Content type 'application/x-gzip' length 1448440 bytes (1.4 MB)
+==================================================
+downloaded 1.4 MB
+
+* installing *binary* package ‘dplyr’ ...
+* DONE (dplyr)
+
+The downloaded source packages are in
+	‘/tmp/Rtmp4JRaO6/downloaded_packages’
+> library("dplyr")
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+> glimpse(penguins)
+Error in glimpse(penguins) : object 'penguins' not found
+> install.packages("palmerpenguins")
+Installing package into ‘/cloud/lib/x86_64-pc-linux-gnu-library/4.0’
+(as ‘lib’ is unspecified)
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/palmerpenguins_0.1.1.tar.gz'
+Content type 'application/x-gzip' length 3000992 bytes (2.9 MB)
+==================================================
+downloaded 2.9 MB
+
+* installing *binary* package ‘palmerpenguins’ ...
+* DONE (palmerpenguins)
+
+The downloaded source packages are in
+	‘/tmp/Rtmp4JRaO6/downloaded_packages’
+> library("palmerpenguins")
+> glimpse(penguins)
+Rows: 344
+Columns: 8
+$ species           <fct> Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adeli…
+$ island            <fct> Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torger…
+$ bill_length_mm    <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, 42.0, 37.…
+$ bill_depth_mm     <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, 20.2, 17.…
+$ flipper_length_mm <int> 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186, 180, 18…
+$ body_mass_g       <int> 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, 4250, 330…
+$ sex               <fct> male, female, female, NA, female, male, female, male, NA, NA,…
+$ year              <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2…
+> head(penguins)
+# A tibble: 6 × 8
+  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mas…¹ sex    year
+  <fct>   <fct>              <dbl>         <dbl>             <int>      <int> <fct> <int>
+1 Adelie  Torgersen           39.1          18.7               181       3750 male   2007
+2 Adelie  Torgersen           39.5          17.4               186       3800 fema…  2007
+3 Adelie  Torgersen           40.3          18                 195       3250 fema…  2007
+4 Adelie  Torgersen           NA            NA                  NA         NA NA     2007
+5 Adelie  Torgersen           36.7          19.3               193       3450 fema…  2007
+6 Adelie  Torgersen           39.3          20.6               190       3650 male   2007
+# … with abbreviated variable name ¹​body_mass_g
+> penguins %>% select(species)
+# A tibble: 344 × 1
+   species
+   <fct>  
+ 1 Adelie 
+ 2 Adelie 
+ 3 Adelie 
+ 4 Adelie 
+ 5 Adelie 
+ 6 Adelie 
+ 7 Adelie 
+ 8 Adelie 
+ 9 Adelie 
+10 Adelie 
+# … with 334 more rows
+# ℹ Use `print(n = ...)` to see more rows
+> penguins %>% select(-species)
+# A tibble: 344 × 7
+   island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g sex     year
+   <fct>              <dbl>         <dbl>             <int>       <int> <fct>  <int>
+ 1 Torgersen           39.1          18.7               181        3750 male    2007
+ 2 Torgersen           39.5          17.4               186        3800 female  2007
+ 3 Torgersen           40.3          18                 195        3250 female  2007
+ 4 Torgersen           NA            NA                  NA          NA NA      2007
+ 5 Torgersen           36.7          19.3               193        3450 female  2007
+ 6 Torgersen           39.3          20.6               190        3650 male    2007
+ 7 Torgersen           38.9          17.8               181        3625 female  2007
+ 8 Torgersen           39.2          19.6               195        4675 male    2007
+ 9 Torgersen           34.1          18.1               193        3475 NA      2007
+10 Torgersen           42            20.2               190        4250 NA      2007
+# … with 334 more rows
+# ℹ Use `print(n = ...)` to see more rows
