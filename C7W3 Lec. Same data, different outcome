@@ -1,0 +1,159 @@
+R SCRIPT
+
+>
+
+
+ install.packages("Tmisc")
+--- Please select a CRAN mirror for use in this session ---
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/windows/contrib/4.2/Tmisc_1.0.0.zip'
+Content type 'application/octet-stream' length 100516 bytes (98 KB)
+downloaded 98 KB
+
+package ‘Tmisc’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+        C:\Users\DudeiLikesushi\AppData\Local\Temp\Rtmpao0UyW\downloaded_packages
+library(Tmisc)
+
+data(quartet)
+View(quartet)
+
+## GROUP DATA BY SET
+
+library(dplyr)
+quartet %>% 
+	group_by(set) %>%
+	summarize(mean(x), sd(x), mean(y), sd(y), cor(x,y))
+
+##PLOTTING THE SUMMARZIED SATA
+
+library(tidyverse)
+
+ggplot(quartet, aes(x,y)) +geom_point() + geom_smooth(method =lm, se=FALSE) + facet_wrap(~set)
+
+
+##INSTALLING datasauRus PACKAGE
+
+install.packages("datasauRus")
+library("datasauRus")
+library("tidyverse")
+
+ggplot(datasaurus_dozen, aes (x=x, y=y, colour=dataset)) + geom_point()+ theme_void() + theme(legend.position = "none") + facet_wrap(~dataset, ncol=3) 
+
+
+
+R CONSOLE
+
+
+R version 4.2.2 (2022-10-31 ucrt) -- "Innocent and Trusting"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> install.packages("Tmisc")
+--- Please select a CRAN mirror for use in this session ---
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/windows/contrib/4.2/Tmisc_1.0.0.zip'
+Co
+downloaded 98 KB
+
+package ‘Tmisc’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+        C:\Users\DudeiLikesushi\AppData\Local\Temp\Rtmpao0UyW\downloaded_packages
+> library(Tmisc)
+> stat(quartet)
+Error in stat(quartet) : could not find function "stat"
+> data(quartet)
+> View(quartet)
+> 
+> ## GROUP DATA BY SET
+> quartet %>% group_by(set) %>%
++ summarize(mean(x), sd(x), mean(y), sd(y), cor(x,y))
+Error in summarize(., mean(x), sd(x), mean(y), sd(y), cor(x, y)) : 
+  could not find function "summarize"
+> > library(Tmisc)
+Error: unexpected '>' in ">"
+> 
+> > data(quartet)
+Error: unexpected '>' in ">"
+> > View(quartet)
+Error: unexpected '>' in ">"
+> library(Tmisc)
+> 
+> data(quartet)
+> View(quartet)
+> quartet %>% 
++ group_by(set) %>%
++ summarize(mean(x), sd(x), mean(y), sd(y), cor(x,y))
+Error in summarize(., mean(x), sd(x), mean(y), sd(y), cor(x, y)) : 
+  could not find function "summarize"
+> library(dplyr)
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+> quartet %>% 
++ group_by(set) %>%
++ summarize(mean(x), sd(x), mean(y), sd(y), cor(x,y))
+# A tibble: 4 × 6
+  set   `mean(x)` `sd(x)` `mean(y)` `sd(y)` `cor(x, y)`
+  <fct>     <dbl>   <dbl>     <dbl>   <dbl>       <dbl>
+1 I             9    3.32      7.50    2.03       0.816
+2 II            9    3.32      7.50    2.03       0.816
+3 III           9    3.32      7.5     2.03       0.816
+4 IV            9    3.32      7.50    2.03       0.817
+> 
+> library(tidyr)
+> ggplot(quartet, aes(x,y)) +geom_point() + geom_smooth(method =lm, se=FALSE) + facet_wrap(~set)
+Error in ggplot(quartet, aes(x, y)) : could not find function "ggplot"
+> install.packages("tidyr")
+Warning: package ‘tidyr’ is in use and will not be installed
+> library("tidyr")
+> 
+> library(tidyverse)
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats   1.0.0     ✔ readr     2.1.4
+✔ ggplot2   3.4.1     ✔ stringr   1.5.0
+✔ lubridate 1.9.2     ✔ tibble    3.1.8
+✔ purrr     1.0.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+> ggplot(quartet, aes(x,y)) +geom_point() + geom_smooth(method =lm, se=FALSE) + facet_wrap(~set)
+`geom_smooth()` using formula = 'y ~ x'
+> install.packages("datasauRus")
+trying URL 'https://repo.miserver.it.umich.edu/cran/bin/windows/contrib/4.2/datasauRus_0.1.6.zip'
+Content type 'application/octet-stream' length 885054 bytes (864 KB)
+downloaded 864 KB
+
+package ‘datasauRus’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+        C:\Users\DudeiLikesushi\AppData\Local\Temp\Rtmpao0UyW\downloaded_packages
+> library("datasauRus")
+
+> ggplot(datasaurus_dozen, aes (x=x, y=y, colour=dataset)) + geom_point()+ theme_void() + theme(legend.position = "none") + facet_wrap(~dataset, ncol=3)
+
