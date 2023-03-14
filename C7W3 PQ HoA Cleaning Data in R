@@ -1,0 +1,587 @@
+R SCRIPT
+
+
+
+---
+title: "Lesson 3: Cleaning data"
+output: html_document
+---
+
+## Background for this activity
+
+In this activity, you’ll review a scenario, and focus on cleaning real data in R. You will learn more about data cleaning functions and perform basic calculations to gain initial insights into your data.
+
+Throughout this activity, you will also have the opportunity to practice writing your own code by making changes to the code chunks yourself. If you encounter an error or get stuck, you can always check the Lesson2_Clean_Solutions .rmd file in the Solutions folder under Week 3 for the complete, correct code. 
+
+## The scenario
+
+In this scenario, you are a junior data analyst working for a hotel booking company. You have been asked to clean a .csv file that was created after querying a database to combine two different tables from different hotels. In order to learn more about this data, you are going to need to use functions to preview the data's structure, including its columns and rows. You will also need to use basic cleaning functions to prepare this data for analysis.  
+
+## Step 1: Load packages
+
+In order to start cleaning your data, you will need to  by install the required packages. If you have already installed and loaded `tidyverse`, `skimr`, and `janitor` in this session, feel free to skip the code chunks in this step.
+
+```{r}
+install.packages("tidyverse")
+install.packages("skimr")
+install.packages("janitor")
+```
+
+Once a package is installed, you can load it by running the `library()` function with the package name inside the parentheses:
+
+```{r}
+library(tidyverse)
+library(skimr)
+library(janitor)
+```
+
+## Step 2: Import data
+
+The data you have been asked to clean is currently an external .csv file. In order to view and clean it in `R`, you will need to import it. The `tidyverse` library `readr` package has a number of functions for "reading in" or importing data, including .csv files. 
+
+In the chunk below, you will use the `read_csv()` function to import data from a .csv file in the project folder called "hotel_bookings.csv" and save it as a data frame called `bookings_df`:
+
+If this line causes an error, copy in the line setwd("projects/Course 7/Week 3") before it. 
+
+```{r}
+getwd()
+setwd("/cloud/project/Course 7/Week 3")
+bookings_df <- read_csv("hotel_bookings.csv")
+```
+
+## Step 3: Getting to know your data
+
+Before you start cleaning your data, take some time to explore it. You can use several functions that you are already familiar with to preview your data, including the `head()` function in the code chunk below:
+
+```{r}
+head(bookings_df)
+```
+
+You can also summarize or preview the data with the `str()` and `glimpse()` functions to get a better understanding of the data by running the code chunks below:
+
+```{r}
+str(bookings_df)
+```
+
+```{r}
+glimpse(bookings_df)
+```
+
+You can also use `colnames()` to check the names of the columns in your data set. Run the code chunk below to find out the column names in this data set:
+
+```{r}
+colnames(bookings_df)
+```
+
+Some packages contain more advanced functions for summarizing and exploring your data. One example is the `skimr` package, which has a number of functions for this purpose. For example, the `skim_without_charts()` function provides a detailed summary of the data. Try running the code below:
+
+```{r}
+skim_without_charts(bookings_df)
+```
+
+## Step 4: Cleaning your data
+
+Based on the functions you have used so far, how would you describe your data in a brief to your stakeholder? Now, let's say you are primarily interested in the following variables: 'hotel', 'is_canceled', and 'lead_time'. Create a new data frame with just those columns, calling it `trimmed_df` by adding the variable names to this code chunk:
+
+```{r}
+library(dplyr)
+trimmed_df <- bookings_df %>% select(hotel , is_canceled , lead_time)
+```
+
+Remember to check the solutions doc if you are having trouble filling out any of these code chunks. 
+
+You might notice that some of the column names aren't very intuitive, so you will want to rename them to make them easier to understand. You might want to create the same exact data frame as above, but rename the variable 'hotel' to be named 'hotel_type' to be crystal clear on what the data is about
+
+Fill in the space to the left of the '=' symbol with the new variable name:
+
+```{r}
+trimmed_df %>% 
+  select(hotel, is_canceled, lead_time) %>% 
+  rename(hotel_type = hotel)
+```
+
+Another common task is to either split or combine data in different columns. In this example, you can combine the arrival month and year into one column using the unite() function:
+
+```{r}
+example_df <- bookings_df %>%
+  select(arrival_date_year, arrival_date_month) %>% 
+  unite(arrival_month_year, c("arrival_date_month", "arrival_date_year"), sep = " ")
+```
+
+## Step 5: Another way of doing things
+
+You can also use the`mutate()` function to make changes to your columns. Let's say you wanted to create a new column that summed up all the adults, children, and babies on a reservation for the total number of people. Modify the code chunk below to create that new column:  
+
+```{r}
+example_df <- bookings_df %>%
+  mutate(guests = )
+
+head(example_df)
+```
+
+Great. Now it's time to calculate some summary statistics! Calculate the total number of canceled bookings and the average lead time for booking - you'll want to start your code after the %>% symbol. Make a column called 'number_canceled' to represent the total number of canceled bookings. Then, make a column called 'average_lead_time' to represent the average lead time. Use the `summarize()` function to do this in the code chunk below:
+
+```{r}
+
+example_df <- bookings_df %>% summarize(number_canceled = sum(is_canceled),
+            average_lead_time = mean(lead_time))
+
+
+head(example_df)
+```
+
+If you are having trouble completing any of the code chunks in these activities, remember that you can reference the RMarkdown documents in the 'Solutions' for help. 
+
+## Activity Wrap Up
+Now you have some experience cleaning and analyzing data in `R`; you used basic cleaning functions like `rename()` and performed basic calculations on real data. You can continue to practice these skills by modifying the code chunks in the rmd file, or use this code as a starting point in your own project console. One of the reasons `R` is such a powerful tool for data analysis is because you can perform so many different tasks in one place. With the functions you have been learning in this course, you can import data, create and view data frames, and even clean data without leaving your console.  
+
+Make sure to mark this activity as complete in Coursera.
+
+
+
+
+R CONSOLE
+
+
+
+Show in New Window
+[1] "/cloud/project/Course 7/Week 3"
+Rows: 119390 Columns: 32── Column specification ─────────────────────────────────────
+Delimiter: ","
+chr  (13): hotel, arrival_date_month, meal, country, mark...
+dbl  (18): is_canceled, lead_time, arrival_date_year, arr...
+date  (1): reservation_status_date
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Show in New Window
+A tibble:6 × 32
+hotel
+<chr>
+is_canceled
+<dbl>
+lead_time
+<dbl>
+Resort Hotel	0	342	
+Resort Hotel	0	737	
+Resort Hotel	0	7	
+Resort Hotel	0	13	
+Resort Hotel	0	14	
+Resort Hotel	0	14	
+6 rows | 1-3 of 32 columns
+Show in New Window
+spc_tbl_ [119,390 × 32] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ hotel                         : chr [1:119390] "Resort Hotel" "Resort Hotel" "Resort Hotel" "Resort Hotel" ...
+ $ is_canceled                   : num [1:119390] 0 0 0 0 0 0 0 0 1 1 ...
+ $ lead_time                     : num [1:119390] 342 737 7 13 14 14 0 9 85 75 ...
+ $ arrival_date_year             : num [1:119390] 2015 2015 2015 2015 2015 ...
+ $ arrival_date_month            : chr [1:119390] "July" "July" "July" "July" ...
+ $ arrival_date_week_number      : num [1:119390] 27 27 27 27 27 27 27 27 27 27 ...
+ $ arrival_date_day_of_month     : num [1:119390] 1 1 1 1 1 1 1 1 1 1 ...
+ $ stays_in_weekend_nights       : num [1:119390] 0 0 0 0 0 0 0 0 0 0 ...
+ $ stays_in_week_nights          : num [1:119390] 0 0 1 1 2 2 2 2 3 3 ...
+ $ adults                        : num [1:119390] 2 2 1 1 2 2 2 2 2 2 ...
+ $ children                      : num [1:119390] 0 0 0 0 0 0 0 0 0 0 ...
+ $ babies                        : num [1:119390] 0 0 0 0 0 0 0 0 0 0 ...
+ $ meal                          : chr [1:119390] "BB" "BB" "BB" "BB" ...
+ $ country                       : chr [1:119390] "PRT" "PRT" "GBR" "GBR" ...
+ $ market_segment                : chr [1:119390] "Direct" "Direct" "Direct" "Corporate" ...
+ $ distribution_channel          : chr [1:119390] "Direct" "Direct" "Direct" "Corporate" ...
+ $ is_repeated_guest             : num [1:119390] 0 0 0 0 0 0 0 0 0 0 ...
+ $ previous_cancellations        : num [1:119390] 0 0 0 0 0 0 0 0 0 0 ...
+ $ previous_bookings_not_canceled: num [1:119390] 0 0 0 0 0 0 0 0 0 0 ...
+ $ reserved_room_type            : chr [1:119390] "C" "C" "A" "A" ...
+ $ assigned_room_type            : chr [1:119390] "C" "C" "C" "A" ...
+ $ booking_changes               : num [1:119390] 3 4 0 0 0 0 0 0 0 0 ...
+ $ deposit_type                  : chr [1:119390] "No Deposit" "No Deposit" "No Deposit" "No Deposit" ...
+ $ agent                         : chr [1:119390] "NULL" "NULL" "NULL" "304" ...
+ $ company                       : chr [1:119390] "NULL" "NULL" "NULL" "NULL" ...
+ $ days_in_waiting_list          : num [1:119390] 0 0 0 0 0 0 0 0 0 0 ...
+ $ customer_type                 : chr [1:119390] "Transient" "Transient" "Transient" "Transient" ...
+ $ adr                           : num [1:119390] 0 0 75 75 98 ...
+ $ required_car_parking_spaces   : num [1:119390] 0 0 0 0 0 0 0 0 0 0 ...
+ $ total_of_special_requests     : num [1:119390] 0 0 0 0 1 1 0 1 1 0 ...
+ $ reservation_status            : chr [1:119390] "Check-Out" "Check-Out" "Check-Out" "Check-Out" ...
+ $ reservation_status_date       : Date[1:119390], format: "2015-07-01" ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   hotel = col_character(),
+  ..   is_canceled = col_double(),
+  ..   lead_time = col_double(),
+  ..   arrival_date_year = col_double(),
+  ..   arrival_date_month = col_character(),
+  ..   arrival_date_week_number = col_double(),
+  ..   arrival_date_day_of_month = col_double(),
+  ..   stays_in_weekend_nights = col_double(),
+  ..   stays_in_week_nights = col_double(),
+  ..   adults = col_double(),
+  ..   children = col_double(),
+  ..   babies = col_double(),
+  ..   meal = col_character(),
+  ..   country = col_character(),
+  ..   market_segment = col_character(),
+  ..   distribution_channel = col_character(),
+  ..   is_repeated_guest = col_double(),
+  ..   previous_cancellations = col_double(),
+  ..   previous_bookings_not_canceled = col_double(),
+  ..   reserved_room_type = col_character(),
+  ..   assigned_room_type = col_character(),
+  ..   booking_changes = col_double(),
+  ..   deposit_type = col_character(),
+  ..   agent = col_character(),
+  ..   company = col_character(),
+  ..   days_in_waiting_list = col_double(),
+  ..   customer_type = col_character(),
+  ..   adr = col_double(),
+  ..   required_car_parking_spaces = col_double(),
+  ..   total_of_special_requests = col_double(),
+  ..   reservation_status = col_character(),
+  ..   reservation_status_date = col_date(format = "")
+  .. )
+ - attr(*, "problems")=<externalptr> 
+Show in New Window
+Error in glimpse(bookings_df) : could not find function "glimpse"
+Show in New Window
+ [1] "hotel"                          "is_canceled"                   
+ [3] "lead_time"                      "arrival_date_year"             
+ [5] "arrival_date_month"             "arrival_date_week_number"      
+ [7] "arrival_date_day_of_month"      "stays_in_weekend_nights"       
+ [9] "stays_in_week_nights"           "adults"                        
+[11] "children"                       "babies"                        
+[13] "meal"                           "country"                       
+[15] "market_segment"                 "distribution_channel"          
+[17] "is_repeated_guest"              "previous_cancellations"        
+[19] "previous_bookings_not_canceled" "reserved_room_type"            
+[21] "assigned_room_type"             "booking_changes"               
+[23] "deposit_type"                   "agent"                         
+[25] "company"                        "days_in_waiting_list"          
+[27] "customer_type"                  "adr"                           
+[29] "required_car_parking_spaces"    "total_of_special_requests"     
+[31] "reservation_status"             "reservation_status_date"       
+Show in New Window
+Error in skim_without_charts(bookings_df) : 
+  could not find function "skim_without_charts"
+Show in New Window
+A tibble:119,390 × 3
+hotel_type
+<chr>
+is_canceled
+<dbl>
+lead_time
+<dbl>
+Resort Hotel	0	342	
+Resort Hotel	0	737	
+Resort Hotel	0	7	
+Resort Hotel	0	13	
+Resort Hotel	0	14	
+Resort Hotel	0	14	
+Resort Hotel	0	0	
+Resort Hotel	0	9	
+Resort Hotel	1	85	
+Resort Hotel	1	75	
+...
+1-10 of 119,390 rows
+Show in New Window
+Error in is_data_pronoun(expr) :
+argument "expr" is missing, with no default
+Show in New Window
+A tibble:1 × 2
+number_canceled
+<dbl>
+average_lead_time
+<dbl>
+44224	104.0114	
+1 row
+
+R version 4.0.5 (2021-03-31) -- "Shake and Throw"
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> install.packages("skimr")
+Installing package into ‘/cloud/lib/x86_64-pc-linux-gnu-library/4.0’
+(as ‘lib’ is unspecified)
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/skimr_2.1.5.tar.gz'
+Content type 'application/x-gzip' length 1226894 bytes (1.2 MB)
+==================================================
+downloaded 1.2 MB
+
+* installing *binary* package ‘skimr’ ...
+* DONE (skimr)
+
+The downloaded source packages are in
+	‘/tmp/Rtmpum7gH1/downloaded_packages’
+> bookings_df <- read_csv("hotel_bookings.csv")
+Error in read_csv("hotel_bookings.csv") : 
+  could not find function "read_csv"
+> library(readr)
+> hotel_bookings <- read_csv("Course 7/Week 3/hotel_bookings.csv")
+Rows: 119390 Columns: 32                                                                                           
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (13): hotel, arrival_date_month, meal, country, market_segment, distrib...
+dbl  (18): is_canceled, lead_time, arrival_date_year, arrival_date_week_numb...
+date  (1): reservation_status_date
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+> View(hotel_bookings)
+> bookings_df <- read_csv("hotel_bookings.csv")
+Error: 'hotel_bookings.csv' does not exist in current working directory ('/cloud/project').
+> setwd("projects/Course 7/Week 3")
+Error in setwd("projects/Course 7/Week 3") : 
+  cannot change working directory
+> bookings_df <- read_csv("hotel_bookings.csv")
+Error: 'hotel_bookings.csv' does not exist in current working directory ('/cloud/project').
+> setwd("projects/Course 7/Week 3")
+Error in setwd("projects/Course 7/Week 3") : 
+  cannot change working directory
+> str(bookings_df)
+Error in str(bookings_df) : object 'bookings_df' not found
+> head(bookings_df)
+Error in head(bookings_df) : object 'bookings_df' not found
+> setwd("projects/Course 7/Week 3")
+Error in setwd("projects/Course 7/Week 3") : 
+  cannot change working directory
+> getwd()
+[1] "/cloud/project/Course 7/Week 3"
+> setwd("projects/Course 7/Week 3")
+Error in setwd("projects/Course 7/Week 3") : 
+  cannot change working directory
+> getwd()
+[1] "/cloud/project/Course 7/Week 3"
+> setwd("project/Course 7/Week 3")
+Error in setwd("project/Course 7/Week 3") : 
+  cannot change working directory
+> getwd()
+[1] "/cloud/project/Course 7/Week 3"
+> setwd("/project/Course 7/Week 3")
+Error in setwd("/project/Course 7/Week 3") : 
+  cannot change working directory
+> getwd()
+[1] "/cloud/project/Course 7/Week 3"
+> setwd("cloud/project/Course 7/Week 3")
+Error in setwd("cloud/project/Course 7/Week 3") : 
+  cannot change working directory
+> getwd()
+[1] "/cloud/project/Course 7/Week 3"
+> setwd("/cloud/project/Course 7/Week 3")
+> bookings_df <- read_csv("hotel_bookings.csv")
+> head(bookings_df)
+> str(bookings_df)
+spc_tbl_ [119,390 × 32] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ hotel                         : chr [1:119390] "Resort Hotel" "Resort Hotel" "Resort Hotel" "Resort Hotel" ...
+ $ is_canceled                   : num [1:119390] 0 0 0 0 0 0 0 0 1 1 ...
+ $ lead_time                     : num [1:119390] 342 737 7 13 14 14 0 9 85 75 ...
+ $ arrival_date_year             : num [1:119390] 2015 2015 2015 2015 2015 ...
+ $ arrival_date_month            : chr [1:119390] "July" "July" "July" "July" ...
+ $ arrival_date_week_number      : num [1:119390] 27 27 27 27 27 27 27 27 27 27 ...
+ $ arrival_date_day_of_month     : num [1:119390] 1 1 1 1 1 1 1 1 1 1 ...
+ $ stays_in_weekend_nights       : num [1:119390] 0 0 0 0 0 0 0 0 0 0 ...
+ $ stays_in_week_nights          : num [1:119390] 0 0 1 1 2 2 2 2 3 3 ...
+ $ adults                        : num [1:119390] 2 2 1 1 2 2 2 2 2 2 ...
+ $ children                      : num [1:119390] 0 0 0 0 0 0 0 0 0 0 ...
+ $ babies                        : num [1:119390] 0 0 0 0 0 0 0 0 0 0 ...
+ $ meal                          : chr [1:119390] "BB" "BB" "BB" "BB" ...
+ $ country                       : chr [1:119390] "PRT" "PRT" "GBR" "GBR" ...
+ $ market_segment                : chr [1:119390] "Direct" "Direct" "Direct" "Corporate" ...
+ $ distribution_channel          : chr [1:119390] "Direct" "Direct" "Direct" "Corporate" ...
+ $ is_repeated_guest             : num [1:119390] 0 0 0 0 0 0 0 0 0 0 ...
+ $ previous_cancellations        : num [1:119390] 0 0 0 0 0 0 0 0 0 0 ...
+ $ previous_bookings_not_canceled: num [1:119390] 0 0 0 0 0 0 0 0 0 0 ...
+ $ reserved_room_type            : chr [1:119390] "C" "C" "A" "A" ...
+ $ assigned_room_type            : chr [1:119390] "C" "C" "C" "A" ...
+ $ booking_changes               : num [1:119390] 3 4 0 0 0 0 0 0 0 0 ...
+ $ deposit_type                  : chr [1:119390] "No Deposit" "No Deposit" "No Deposit" "No Deposit" ...
+ $ agent                         : chr [1:119390] "NULL" "NULL" "NULL" "304" ...
+ $ company                       : chr [1:119390] "NULL" "NULL" "NULL" "NULL" ...
+ $ days_in_waiting_list          : num [1:119390] 0 0 0 0 0 0 0 0 0 0 ...
+ $ customer_type                 : chr [1:119390] "Transient" "Transient" "Transient" "Transient" ...
+ $ adr                           : num [1:119390] 0 0 75 75 98 ...
+ $ required_car_parking_spaces   : num [1:119390] 0 0 0 0 0 0 0 0 0 0 ...
+ $ total_of_special_requests     : num [1:119390] 0 0 0 0 1 1 0 1 1 0 ...
+ $ reservation_status            : chr [1:119390] "Check-Out" "Check-Out" "Check-Out" "Check-Out" ...
+ $ reservation_status_date       : Date[1:119390], format: "2015-07-01" ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   hotel = col_character(),
+  ..   is_canceled = col_double(),
+  ..   lead_time = col_double(),
+  ..   arrival_date_year = col_double(),
+  ..   arrival_date_month = col_character(),
+  ..   arrival_date_week_number = col_double(),
+  ..   arrival_date_day_of_month = col_double(),
+  ..   stays_in_weekend_nights = col_double(),
+  ..   stays_in_week_nights = col_double(),
+  ..   adults = col_double(),
+  ..   children = col_double(),
+  ..   babies = col_double(),
+  ..   meal = col_character(),
+  ..   country = col_character(),
+  ..   market_segment = col_character(),
+  ..   distribution_channel = col_character(),
+  ..   is_repeated_guest = col_double(),
+  ..   previous_cancellations = col_double(),
+  ..   previous_bookings_not_canceled = col_double(),
+  ..   reserved_room_type = col_character(),
+  ..   assigned_room_type = col_character(),
+  ..   booking_changes = col_double(),
+  ..   deposit_type = col_character(),
+  ..   agent = col_character(),
+  ..   company = col_character(),
+  ..   days_in_waiting_list = col_double(),
+  ..   customer_type = col_character(),
+  ..   adr = col_double(),
+  ..   required_car_parking_spaces = col_double(),
+  ..   total_of_special_requests = col_double(),
+  ..   reservation_status = col_character(),
+  ..   reservation_status_date = col_date(format = "")
+  .. )
+ - attr(*, "problems")=<externalptr> 
+> glimpse(bookings_df)
+Error in glimpse(bookings_df) : could not find function "glimpse"
+> install.packages("dplyr")
+Installing package into ‘/cloud/lib/x86_64-pc-linux-gnu-library/4.0’
+(as ‘lib’ is unspecified)
+trying URL 'http://rspm/default/__linux__/focal/latest/src/contrib/dplyr_1.1.0.tar.gz'
+Content type 'application/x-gzip' length 1448440 bytes (1.4 MB)
+==================================================
+downloaded 1.4 MB
+
+* installing *binary* package ‘dplyr’ ...
+* DONE (dplyr)
+
+The downloaded source packages are in
+	‘/tmp/Rtmpum7gH1/downloaded_packages’
+> glimpse(bookings_df)
+Error in glimpse(bookings_df) : could not find function "glimpse"
+> colnames(bookings_df)
+ [1] "hotel"                          "is_canceled"                   
+ [3] "lead_time"                      "arrival_date_year"             
+ [5] "arrival_date_month"             "arrival_date_week_number"      
+ [7] "arrival_date_day_of_month"      "stays_in_weekend_nights"       
+ [9] "stays_in_week_nights"           "adults"                        
+[11] "children"                       "babies"                        
+[13] "meal"                           "country"                       
+[15] "market_segment"                 "distribution_channel"          
+[17] "is_repeated_guest"              "previous_cancellations"        
+[19] "previous_bookings_not_canceled" "reserved_room_type"            
+[21] "assigned_room_type"             "booking_changes"               
+[23] "deposit_type"                   "agent"                         
+[25] "company"                        "days_in_waiting_list"          
+[27] "customer_type"                  "adr"                           
+[29] "required_car_parking_spaces"    "total_of_special_requests"     
+[31] "reservation_status"             "reservation_status_date"       
+> skim_without_charts(bookings_df)
+Error in skim_without_charts(bookings_df) : 
+  could not find function "skim_without_charts"
+> trimmed_df <- bookings_df %>% 
++   select( , , )
+Error in bookings_df %>% select(, , ) : could not find function "%>%"
+> trimmed_df <- bookings_df %>% 
++   select(hotel , is_canceled , lead_time)
+Error in bookings_df %>% select(hotel, is_canceled, lead_time) : 
+  could not find function "%>%"
+> trimmed_df <- bookings_df %>% select(hotel , is_canceled , lead_time)
+Error in bookings_df %>% select(hotel, is_canceled, lead_time) : 
+  could not find function "%>%"
+> library(dplyr)
+> trimmed_df <- bookings_df %>% select(hotel , is_canceled , lead_time)
+> library(dplyr)
+> trimmed_df <- bookings_df %>% select(hotel , is_canceled , lead_time)
+> trimmed_df %>% 
++   select(hotel, is_canceled, lead_time) %>% 
++   rename(hotel = hotel_type)
+Error in `rename()`:
+! Can't rename columns that don't exist.
+✖ Column `hotel_type` doesn't exist.
+Backtrace:
+ 1. trimmed_df %>% select(hotel, is_canceled, lead_time) %>% ...
+ 3. dplyr:::rename.data.frame(., hotel = hotel_type)
+> trimmed_df %>% 
++   select(hotel, is_canceled, lead_time) %>% 
++   rename("hotel" = "hotel_type")
+Error in `rename()`:
+! Can't rename columns that don't exist.
+✖ Column `hotel_type` doesn't exist.
+Backtrace:
+ 1. trimmed_df %>% select(hotel, is_canceled, lead_time) %>% ...
+ 3. dplyr:::rename.data.frame(., hotel = "hotel_type")
+> trimmed_df %>% 
++   select(hotel, is_canceled, lead_time) %>% 
++   rename(hotel = "hotel_type")
+Error in `rename()`:
+! Can't rename columns that don't exist.
+✖ Column `hotel_type` doesn't exist.
+Backtrace:
+ 1. trimmed_df %>% select(hotel, is_canceled, lead_time) %>% ...
+ 3. dplyr:::rename.data.frame(., hotel = "hotel_type")
+> trimmed_df %>% 
++   select(hotel, is_canceled, lead_time) %>% 
++   rename(= hotel_type)
+Error: unexpected '=' in:
+"  select(hotel, is_canceled, lead_time) %>% 
+  rename(="
+> trimmed_df %>% 
++   select(hotel, is_canceled, lead_time) %>% 
++   rename( = hotel_type)
+Error: unexpected '=' in:
+"  select(hotel, is_canceled, lead_time) %>% 
+  rename( ="
+> trimmed_df %>% 
++   select(hotel, is_canceled, lead_time) %>% 
++   rename(hotel_type = hotel)
+> example_df <- bookings_df %>%
++   select(arrival_date_year, arrival_date_month) %>% 
++   unite(arrival_month_year, c("arrival_date_month", "arrival_date_year"), sep = " ")
+Error in unite(., arrival_month_year, c("arrival_date_month", "arrival_date_year"),  : 
+  could not find function "unite"
+> library(dplyr)
+> example_df <- bookings_df %>%
++   select(arrival_date_year, arrival_date_month) %>% 
++   unite(arrival_month_year, c("arrival_date_month", "arrival_date_year"), sep = " ")
+Error in unite(., arrival_month_year, c("arrival_date_month", "arrival_date_year"),  : 
+  could not find function "unite"
+> library(dplyr)
+> example_df <- bookings_df %>%
++   select(arrival_date_year, arrival_date_month) %>% 
++   unite(arrival_month_year, c("arrival_date_month", "arrival_date_year"), sep = " ")
+Error in unite(., arrival_month_year, c("arrival_date_month", "arrival_date_year"),  : 
+  could not find function "unite"
+> library(tidyr)
+> example_df <- bookings_df %>%
++   select(arrival_date_year, arrival_date_month) %>% 
++   unite(arrival_month_year, c("arrival_date_month", "arrival_date_year"), sep = " ")
+> library(tidyr)
+> example_df <- bookings_df %>%
++   select(arrival_date_year, arrival_date_month) %>% 
++   unite(arrival_month_year, c("arrival_date_month", "arrival_date_year"), sep = " ")
+> example_df <- bookings_df %>%
++   mutate(guests = )
+Error in is_data_pronoun(expr) : 
+  argument "expr" is missing, with no default
+> library(tidyr)
+> library(tidyr)
+> example_df <- bookings_df %>%
++   select(arrival_date_year, arrival_date_month) %>% 
++   unite(arrival_month_year, c("arrival_date_month", "arrival_date_year"), sep = " ")
+> example_df <- bookings_df %>%
++   select(arrival_date_year, arrival_date_month) %>% 
++   unite(arrival_month_year, c("arrival_date_month", "arrival_date_year"), sep = " ")
+> 
+> example_df <- bookings_df %>% summarize(number_canceled = sum(is_canceled),
++             average_lead_time = mean(lead_time))
+> 
+> 
+> head(example_df)
+Session restored from your saved work on 2023-Mar-14 18:44:59 UTC (28 minutes ago)
